@@ -46,9 +46,28 @@ Consegui chegar até <b>889k</b> com o arquivo:
 
 [Dockerfile.004](/Dockerfile.004)
 
+<p style="text-align: justify; font-size: 1.2em;">
+A imagem está disponível no DockerHub e para baixá-la, execute :</p>
+
+```code
+$ docker pull neuroticks/mysmallgoimage:v4.0
+ v4.0: Pulling from neuroticks/mysmallgoimage
+ a3e0a3e8df48: Pull complete 
+ Digest: sha256:9b9d4db25a90499f2ec03b6edfe885860946494d8c5c43510c9cafd1977614ed
+ Status: Downloaded newer image for neuroticks/mysmallgoimage:v4.0
+ docker.io/neuroticks/mysmallgoimage:v4.0
+```
+<p style="text-align: justify; font-size: 1.2em;">
+Para testar:</p>
+
+```code
+$ docker run --rm neuroticks/mysmallgoimage:v4.0
+Full Cycle Rocks!!!
+```
+
 <h2> In the beginning </h2>
 <p style="text-align: justify; font-size: 1.2em;">
-Inicialmente, para entender um pouco como fazer esta bendita imagem, </br>
+Inicialmente, para entender um pouco como fazer esta bendita imagem, 
 li e "meio que reproduzi" o que consegui extrair destas páginas:
 </p>
 <a href="https://docs.docker.com/language/golang/build-images/" target="_blank">build docker images - golang</a>
@@ -63,8 +82,8 @@ O resultado foram estes arquivos:</p>
 3. [Dockerfile.001](/Dockerfile.001)
 
 <p style="text-align: justify; font-size: 1.2em;">
-<i>Até então eu achava que precisava dos arquivos go.mod e main.go.</i></br>
-<i>E que a organização de pastas era importante... até são, mas não nessa tarefa!</i></p>
+<i>Até então eu achava que precisava dos arquivos go.mod e main.go. 
+E que a organização de pastas era importante... até são, mas não nessa tarefa!</i></p>
 
 <p style="text-align: justify; font-size: 1.2em;">
 Comando para construir a imagem:</p>
@@ -93,7 +112,7 @@ $ docker run --rm mysmallgoimage:v1.0
 
 <h2>Let there be <i>Multistage</i></h2>
 <p style="text-align: justify; font-size: 1.2em;">
-Ainda na página que falava sobre o build do docker Go, se explicava o Multistage.</br>
+Ainda na página que falava sobre o build do docker Go, se explicava o Multistage. 
 E assim eu prossegui, obtendo o:</p>
 
 [Dockerfile.001-multistage](/Dockerfile.001-multistage)
@@ -152,8 +171,8 @@ $ docker run --rm mysmallgoimage:v2.0
 
 <h2>And one kept reading and the evening and the night were the first day</h2>
 <p style="text-align: justify; font-size: 1.2em;">
- Continuei lendo, e achei esse tal de <a href="https://aprendagolang.com.br/como-diminuir-o-tamanho-da-sua-aplicacao-com-ldflags/" target="_blank">ldflags</a> que ajudou a reduzir o binário.</br>
- A mudança foi pequena</p>
+ Continuei lendo, e achei esse tal de <a href="https://aprendagolang.com.br/como-diminuir-o-tamanho-da-sua-aplicacao-com-ldflags/" target="_blank">ldflags</a> que ajudou a reduzir o binário. 
+A mudança foi pequena, mas uma ajuda, por menor que seja, é sempre uma ajuda!</p>
  
 [Dockerfile.003](/Dockerfile.003)
 
@@ -176,7 +195,7 @@ $ docker run --rm mysmallgoimage:v3.0
 ---
 
 <p style="text-align: justify; font-size: 1.2em;">
- Ainda retirei o módulo de formatação e tentei usar a imagem alpine como origem, e com isso ainda obtive mais um pouco de redução no tamanho.</p>
+ Ainda retirei o módulo de formatação e tentei usar a imagem alpine como origem, e com isso obtive mais um pouco de redução no tamanho.</p>
  
 [Dockerfile.004](/Dockerfile.004)
 
