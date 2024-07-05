@@ -46,7 +46,7 @@ Consegui chegar até <b>889k</b> com o arquivo:
 
 [Dockerfile.004](FCDesafio01/Dockerfile.004)
 
-<h2> In the beggining </h2>
+<h2> In the beginning </h2>
 <p style="text-align: justify; font-size: 1.2em;">
 Inicialmente, para entender um pouco como fazer esta bendita imagem, </br>
 li e "meio que reproduzi" o que consegui extrair destas páginas:
