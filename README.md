@@ -173,7 +173,8 @@ $ docker run --rm mysmallgoimage:v3.0
  Full Cycle Rocks!!!
 ```
 
-===========================================================
+---
+
 <p style="text-align: justify; font-size: 1.2em;">
  Ainda retirei o módulo de formatação e tentei usar a imagem alpine como origem, e com isso ainda obtive mais um pouco de redução no tamanho.</p>
  
