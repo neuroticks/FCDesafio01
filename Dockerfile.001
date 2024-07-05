@@ -1,0 +1,21 @@
+# syntax=docker/dockerfile:1
+
+# define a imagem base a partir da qual a imagem será construída
+FROM golang:1.22-bullseye
+
+# define o diretório de trabalho para o container
+WORKDIR /go/src/app
+
+# copia o arquivo go.mod do projeto Go local para o diretório de trabalho da imagem
+COPY go.mod main.go ./
+
+# baixa todas as dependências mod necessárias para o projeto
+RUN go mod download
+
+# verifica a integridade das dependências mod do projeto Go
+RUN go mod verify
+
+# compila o programa Go para o ambiente específico da imagem
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main .
+
+CMD [ "./main" ]

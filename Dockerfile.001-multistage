@@ -1,0 +1,32 @@
+# syntax=docker/dockerfile:1
+
+# define a imagem base a partir da qual a imagem será construída
+FROM golang:1.22-bullseye AS build-stage
+
+# define o diretório de trabalho para o container
+WORKDIR /app
+
+# copia o arquivo go.mod do projeto Go local para o diretório de trabalho da imagem
+COPY go.mod main.go ./
+
+# baixa todas as dependências mod necessárias para o projeto
+RUN go mod download
+
+# verifica a integridade das dependências mod do projeto Go
+RUN go mod verify
+
+# compila o programa Go para o ambiente específico da imagem
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /main
+
+##
+## Implanta o binário em uma imagem mais leve
+##
+FROM gcr.io/distroless/base-debian11 AS build-release-stage
+
+WORKDIR /
+
+COPY --from=build-stage /main /main
+
+ENTRYPOINT ["./main"]
+
+
